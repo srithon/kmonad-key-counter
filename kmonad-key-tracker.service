@@ -3,7 +3,7 @@ Description=Keeps track of keypress frequencies, from KMonad
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/kmonad-keylogger --fifo-group=uinput
+ExecStart=/usr/local/bin/kmonad-key-counter --fifo-group=uinput
 
 [Install]
 WantedBy=default.target

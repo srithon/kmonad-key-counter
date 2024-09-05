@@ -21,15 +21,15 @@ import (
 var Config struct {
 	MaxKeypressesPerWindow int `env:"MAX_KEYPRESSES_PER_WINDOW" default:"100000" help:"How many keypresses to accumulate within a single window before creating a new window."`
 
-	FifoPath  string `env:"FIFO_PATH" default:"/run/kmonad-keylogger.sock" help:"Path to the FIFO; will be created if it does not exist."`
+	FifoPath  string `env:"FIFO_PATH" default:"/run/kmonad-key-counter.sock" help:"Path to the FIFO; will be created if it does not exist."`
 	FifoGroup string `env:"FIFO_GROUP" help:"Linux user group to set on the FIFO"`
 	// 400 = 0620
 	FifoMode os.FileMode `env:"FIFO_MODE" default:"400" help:"Permissions for the FIFO"`
 
-	CacheFilePath       string        `env:"CACHE_FILE" default:"/var/cache/kmonad-keylogger/partial_map.json" help:"Path to the file used for caching the window values, until the window is filled. This is necessary to persist partial windows after shutdowns, and also helps recover from crashes."`
+	CacheFilePath       string        `env:"CACHE_FILE" default:"/var/cache/kmonad-key-counter/partial_map.json" help:"Path to the file used for caching the window values, until the window is filled. This is necessary to persist partial windows after shutdowns, and also helps recover from crashes."`
 	CacheWriteFrequency time.Duration `env:"CACHE_WRITE_FREQUENCY" default:"30s" help:"How often to write to the cache file"`
 
-	DestinationDirPath  string `env:"DESTINATION_DIR" default:"/var/local/kmonad-keylogger" help:"Directory to write full window data files into."`
+	DestinationDirPath  string `env:"DESTINATION_DIR" default:"/var/local/kmonad-key-counter" help:"Directory to write full window data files into."`
 	DestinationDirGroup string `env:"DESTINATION_DIR_GROUP" help:"Linux user group to set on the destination directory, as well as the data files."`
 	// 288 = 0440
 	DestinationDirMode os.FileMode `env:"DESTINATION_DIR_FILE_MODE" default:"288" help:"File permissions on the destination directory, as well as the data files."`

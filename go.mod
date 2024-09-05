@@ -1,4 +1,4 @@
-module kmonad-keylogger
+module kmonad-key-counter
 
 go 1.23.0
 

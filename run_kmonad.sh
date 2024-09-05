@@ -7,7 +7,7 @@ if ! [ -e "$KMONAD_CONFIG_FILE" ]; then
     exit 1
 fi
 
-FIFO=/run/kmonad-keylogger.sock
+FIFO=/run/kmonad-key-counter.sock
 
 kmonad --log-level debug "$KMONAD_CONFIG_FILE" |
     rg --line-buffered '^Received event: Press <(.+)>$' -r '$1' --only-matching >>"$FIFO"
